@@ -38,5 +38,5 @@ jobs:
       run: ./gradlew -PjavaCompatibility=9 jar
     - name: Build RxJava
       run: ./gradlew build --stacktrace
-    - name: Generate Javadoc
-      run: ./gradlew javadoc --stacktrace
+#    - name: Generate Javadoc
+#      run: ./gradlew javadoc --stacktrace
