@@ -44,15 +44,15 @@ jobs:
       run: ./gradlew build --stacktrace --no-daemon
     - name: Upload to Codecov  
       uses: codecov/codecov-action@b9fd7d16f6d7d1b5d2bec1a2887e65ceed900238 # v4.6.0
-    - name: Upload release
-      run: ./gradlew -PreleaseMode=full publish --no-daemon --no-parallel --stacktrace
-      env:
-        # Define secrets at https://github.com/ReactiveX/RxJava/settings/secrets/actions
-        # ------------------------------------------------------------------------------ 
-        ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.SONATYPE_USER }}
-        ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.SONATYPE_PASSWORD }}
-        ORG_GRADLE_PROJECT_SIGNING_PRIVATE_KEY: ${{ secrets.SIGNING_PRIVATE_KEY }}
-        ORG_GRADLE_PROJECT_SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
+#    - name: Upload release
+#      run: ./gradlew -PreleaseMode=full publish --no-daemon --no-parallel --stacktrace
+#      env:
+#       # Define secrets at https://github.com/ReactiveX/RxJava/settings/secrets/actions
+#       # ------------------------------------------------------------------------------ 
+#        ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.SONATYPE_USER }}
+#        ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.SONATYPE_PASSWORD }}
+#        ORG_GRADLE_PROJECT_SIGNING_PRIVATE_KEY: ${{ secrets.SIGNING_PRIVATE_KEY }}
+#        ORG_GRADLE_PROJECT_SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
     - name: Publish release
       run: ./gradlew -PreleaseMode=full publishAndReleaseToMavenCentral --no-configuration-cache --no-daemon --no-parallel --stacktrace
       env:
@@ -60,6 +60,8 @@ jobs:
         # ------------------------------------------------------------------------------ 
         ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.SONATYPE_USER }}
         ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.SONATYPE_PASSWORD }}
+        ORG_GRADLE_PROJECT_SIGNING_PRIVATE_KEY: ${{ secrets.SIGNING_PRIVATE_KEY }}
+        ORG_GRADLE_PROJECT_SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
     - name: Push Javadoc
       run: ./push_javadoc.sh
       env:
