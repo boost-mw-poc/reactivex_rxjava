@@ -49,11 +49,6 @@ dependencies {
     testImplementation "com.google.guava:guava:$guavaVersion"
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
-}
-
 def buildWith11 = System.getenv("BUILD_WITH_11")
 java {
     toolchain {
@@ -64,6 +59,8 @@ java {
             languageVersion = JavaLanguageVersion.of(8)
         }
     }
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 tasks.withType(JavaCompile) {
