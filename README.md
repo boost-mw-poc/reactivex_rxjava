@@ -510,7 +510,7 @@ For further details, consult the [wiki](https://github.com/ReactiveX/RxJava/wiki
 - Google Group: [RxJava](http://groups.google.com/d/forum/rxjava)
 - Twitter: [@RxJava](http://twitter.com/RxJava)
 - [GitHub Issues](https://github.com/ReactiveX/RxJava/issues)
-- StackOverflow: [rx-java](http://stackoverflow.com/questions/tagged/rx-java) and [rx-java2](http://stackoverflow.com/questions/tagged/rx-java2)
+- StackOverflow: [rx-java](http://stackoverflow.com/questions/tagged/rx-java), [rx-java2](http://stackoverflow.com/questions/tagged/rx-java2) and  [rx-java3](http://stackoverflow.com/questions/tagged/rx-java3)
 - [Gitter.im](https://gitter.im/ReactiveX/RxJava)
 
 ## Versioning
@@ -571,11 +571,11 @@ and for Ivy:
 
 ### Snapshots
 
-Snapshots after May 1st, 2021 are available via https://oss.sonatype.org/content/repositories/snapshots/io/reactivex/rxjava3/rxjava/
+Snapshots after May 19st, 2025 are available via https://central.sonatype.com/repository/maven-snapshots/io/reactivex/rxjava3/rxjava/
 
 ```groovy
 repositories {
-  maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+  maven { url 'https://central.sonatype.com/repository/maven-snapshots' }
 }
 
 dependencies {
@@ -583,7 +583,7 @@ dependencies {
 }
 ```
 
-JavaDoc snapshots are available at http://reactivex.io/RxJava/3.x/javadoc/snapshot
+JavaDoc snapshots are available at https://reactivex.io/RxJava/3.x/javadoc/snapshot
 
 ## Build
 
