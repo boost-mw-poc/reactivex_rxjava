@@ -8,8 +8,8 @@ plugins {
     id("me.champeau.gradle.jmh") version "0.5.3"
     id("com.github.hierynomus.license") version "0.16.1"
     id("biz.aQute.bnd.builder") version "6.4.0"
-    id("com.vanniktech.maven.publish") version "0.19.0"
-    id("org.beryx.jar") version "1.2.0"
+    id("com.vanniktech.maven.publish") version "0.32.0"
+    id("org.beryx.jar") version "2.0.0"
 }
 
 ext {
@@ -54,6 +54,18 @@ java {
     targetCompatibility = JavaVersion.VERSION_1_8
 }
 
+def buildWith11 = System.getenv("BUILD_WITH_11")
+java {
+    toolchain {
+        vendor = JvmVendorSpec.ADOPTIUM
+        if ("true".equals(buildWith11)) {
+            languageVersion = JavaLanguageVersion.of(11)
+        } else {
+            languageVersion = JavaLanguageVersion.of(8)
+        }
+    }
+}
+
 tasks.withType(JavaCompile) {
     options.compilerArgs << "-parameters"
 }
@@ -86,12 +98,18 @@ animalsniffer {
     annotation = "io.reactivex.rxjava3.internal.util.SuppressAnimalSniffer"
 }
 
+moduleConfig {
+    moduleInfoPath = 'src/main/module/module-info.java'
+    multiReleaseVersion = 9
+}
+
 jar {
     from('.') {
         include 'LICENSE'
         include 'COPYRIGHT'
         into('META-INF/')
     }
+    exclude("module-info.class")
 
     // Cover for bnd still not supporting MR Jars: https://github.com/bndtools/bnd/issues/2227
     bnd('-fixupmessages': '^Classes found in the wrong directory: \\\\{META-INF/versions/9/module-info\\\\.class=module-info}$')
@@ -106,8 +124,6 @@ jar {
             "Bundle-SymbolicName": "io.reactivex.rxjava3.rxjava",
             "Multi-Release": "true"
     )
-
-    moduleInfoPath = 'src/main/module/module-info.java'
 }
 
 license {
@@ -166,8 +182,9 @@ jacocoTestReport {
     dependsOn testNG
 
     reports {
-        xml.enabled = true
-        html.enabled = true
+            xml.required.set(true)
+	    csv.required.set(false)
+            html.required.set(true)
     }
 }
 
@@ -184,26 +201,6 @@ checkstyle {
 if (project.hasProperty("releaseMode")) {
     logger.lifecycle("ReleaseMode: {}", project.releaseMode)
 
-  /*
-  if ("branch" == project.releaseMode) {
-
-    if (version.endsWith("-SNAPSHOT")) {
-      publishing {
-        repositories {
-          maven {
-             url = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
-          }
-        }
-      }
-
-      mavenPublish {
-        nexus {
-          stagingProfile = "io.reactivex"
-        }
-      }
-    }
-  }
-  */
 
   if ("full" == project.releaseMode) {
     signing {
@@ -211,12 +208,5 @@ if (project.hasProperty("releaseMode")) {
          useInMemoryPgpKeys(project.getProperty("SIGNING_PRIVATE_KEY"), project.getProperty("SIGNING_PASSWORD"))
       }
     }
-    /*
-    mavenPublish {
-      nexus {
-        stagingProfile = "io.reactivex"
-      }
-    }
-    */
   }
 }

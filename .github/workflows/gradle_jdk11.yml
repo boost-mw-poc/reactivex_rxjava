@@ -12,6 +12,9 @@ on:
 permissions:
   contents: read
 
+env:
+  BUILD_WITH_11: true
+
 jobs:
   build:
 
