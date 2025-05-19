@@ -196,6 +196,7 @@ checkstyle {
             "checkstyle.suppressions.file": project.file("config/checkstyle/suppressions.xml"),
             "checkstyle.header.file"      : project.file("config/license/HEADER_JAVA")
     ]
+    checkstyleMain.exclude '**/module-info.java'
 }
 
 if (project.hasProperty("releaseMode")) {
