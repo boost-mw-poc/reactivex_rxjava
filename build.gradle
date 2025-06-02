@@ -208,12 +208,11 @@ if (project.hasProperty("releaseMode")) {
          sign(publishing.publications)
       }
     }
-    
-    mavenPublishing {
+  }
+  mavenPublishing {
       // or when publishing to https://central.sonatype.com/
       publishToMavenCentral(com.vanniktech.maven.publish.SonatypeHost.CENTRAL_PORTAL)
 
       // signAllPublications()
-    }
   }
 }
