@@ -99,6 +99,7 @@ animalsniffer {
 moduleConfig {
     moduleInfoPath = 'src/main/module/module-info.java'
     multiReleaseVersion = 9
+	version = project.version
 }
 
 jar {
