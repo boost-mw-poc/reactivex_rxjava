@@ -45,9 +45,9 @@ public class ObservableConcatMapSinglePerf {
 
         Observable<Integer> source = Observable.fromArray(sourceArray);
 
-        observablePlain = source.concatMap(new Function<Integer, Observable<? extends Integer>>() {
+        observablePlain = source.concatMap(new Function<Integer, Observable<Integer>>() {
             @Override
-            public Observable<? extends Integer> apply(Integer v) {
+            public Observable<Integer> apply(Integer v) {
                 return Observable.just(v);
             }
         });
@@ -59,9 +59,9 @@ public class ObservableConcatMapSinglePerf {
             }
         });
 
-        observableDedicated = source.concatMapSingle(new Function<Integer, Single<? extends Integer>>() {
+        observableDedicated = source.concatMapSingle(new Function<Integer, Single<Integer>>() {
             @Override
-            public Single<? extends Integer> apply(Integer v) {
+            public Single<Integer> apply(Integer v) {
                 return Single.just(v);
             }
         });

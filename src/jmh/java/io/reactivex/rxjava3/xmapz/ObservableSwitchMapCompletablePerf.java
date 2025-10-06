@@ -52,9 +52,9 @@ public class ObservableSwitchMapCompletablePerf {
             }
         });
 
-        observableConvert = source.switchMap(new Function<Integer, Observable<? extends Integer>>() {
+        observableConvert = source.switchMap(new Function<Integer, Observable<Integer>>() {
             @Override
-            public Observable<? extends Integer> apply(Integer v) {
+            public Observable<Integer> apply(Integer v) {
                 return Completable.complete().toObservable();
             }
         });

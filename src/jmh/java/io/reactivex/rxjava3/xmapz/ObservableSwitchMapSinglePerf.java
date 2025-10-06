@@ -52,16 +52,16 @@ public class ObservableSwitchMapSinglePerf {
             }
         });
 
-        observableConvert = source.switchMap(new Function<Integer, Observable<? extends Integer>>() {
+        observableConvert = source.switchMap(new Function<Integer, Observable<Integer>>() {
             @Override
-            public Observable<? extends Integer> apply(Integer v) {
+            public Observable<Integer> apply(Integer v) {
                 return Single.just(v).toObservable();
             }
         });
 
-        observableDedicated = source.switchMapSingle(new Function<Integer, Single<? extends Integer>>() {
+        observableDedicated = source.switchMapSingle(new Function<Integer, Single<Integer>>() {
             @Override
-            public Single<? extends Integer> apply(Integer v) {
+            public Single<Integer> apply(Integer v) {
                 return Single.just(v);
             }
         });

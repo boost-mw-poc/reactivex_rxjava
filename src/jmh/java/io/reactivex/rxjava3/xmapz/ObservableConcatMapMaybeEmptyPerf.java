@@ -52,16 +52,16 @@ public class ObservableConcatMapMaybeEmptyPerf {
             }
         });
 
-        concatMapToObservableEmpty = source.concatMap(new Function<Integer, Observable<? extends Integer>>() {
+        concatMapToObservableEmpty = source.concatMap(new Function<Integer, Observable<Integer>>() {
             @Override
-            public Observable<? extends Integer> apply(Integer v) {
+            public Observable<Integer> apply(Integer v) {
                 return Maybe.<Integer>empty().toObservable();
             }
         });
 
-        observableDedicated = source.concatMapMaybe(new Function<Integer, Maybe<? extends Integer>>() {
+        observableDedicated = source.concatMapMaybe(new Function<Integer, Maybe<Integer>>() {
             @Override
-            public Maybe<? extends Integer> apply(Integer v) {
+            public Maybe<Integer> apply(Integer v) {
                 return Maybe.empty();
             }
         });
