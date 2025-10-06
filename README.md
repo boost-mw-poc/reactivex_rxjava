@@ -2,7 +2,7 @@
 
 <a href='https://github.com/ReactiveX/RxJava/actions?query=workflow%3ASnapshot'><img src='https://github.com/ReactiveX/RxJava/workflows/Snapshot/badge.svg'></a>
 [![codecov.io](http://codecov.io/github/ReactiveX/RxJava/coverage.svg?branch=3.x)](https://codecov.io/gh/ReactiveX/RxJava/branch/3.x)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.reactivex.rxjava3/rxjava/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.reactivex.rxjava3/rxjava)
+[![Maven Central](https://maven-badges.sml.io/sonatype-central/io.reactivex.rxjava3/rxjava/badge.svg)](https://maven-badges.sml.io/sonatype-central/io.reactivex.rxjava3/rxjava)
 [![Contribute with Gitpod](https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod)](https://gitpod.io/#https://github.com/ReactiveX/RxJava)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/ReactiveX/RxJava/badge)](https://securityscorecards.dev/viewer/?uri=github.com/ReactiveX/RxJava)
 
@@ -48,7 +48,7 @@ The first step is to include RxJava 3 into your project, for example, as a Gradl
 implementation "io.reactivex.rxjava3:rxjava:3.x.y"
 ```
 
-(Please replace `x` and `y` with the latest version numbers: [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.reactivex.rxjava3/rxjava/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.reactivex.rxjava3/rxjava)
+(Please replace `x` and `y` with the latest version numbers: [![Maven Central](https://maven-badges.sml.io/sonatype-central/io.reactivex.rxjava3/rxjava/badge.svg)](https://maven-badges.sml.io/sonatype-central/io.reactivex.rxjava3/rxjava)
 )
 
 ### Hello World
